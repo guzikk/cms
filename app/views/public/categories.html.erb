@@ -1,0 +1,9 @@
+<% @page_name= "Category"%>
+<div class="container">
+  <div id="row">
+    <h2> Index of Pages in Category: <%= @category.name%></h2>
+    <% @category.pages.visible.sort.each do |page|%>
+    <%= link_to(page.name, {:action=>'page', :page_id=>page.id}, :class=>'btn btn-default btn-lg btn-block')%>
+    <%end%>
+  </div>
+</div>

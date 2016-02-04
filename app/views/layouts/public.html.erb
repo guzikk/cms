@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> CMS 1.0 <%= "| #{@page_name}" if @page_name %>      </title>
+    <%= javascript_include_tag :application %>
+    <%= stylesheet_link_tag('application', :media=>'all')%>
+</head>
+<body>
+    <%= render(:partial=>"menu")%>
+    <div id="content">
+        <%= yield%>
+    </div>
+    <div id="footer">
+        <br>Krystian Guzara 2016 &copy; <a href="krystianguzara.pl" target="_blank">homepage</a>
+    </div>
+</body>
+</html>

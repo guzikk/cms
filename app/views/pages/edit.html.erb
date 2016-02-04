@@ -1,0 +1,10 @@
+<div class="hero-unit">
+  <h1>Edit Page: <%= @page.name%></h1>
+  <%= form_for(:page, :url => {:action => "update", :id=>@page.id, :category_id=>@categories.id}) do |field|%>
+      <%=render(:partial => "form", :locals => {:field => field})%>
+      <div style="text-align: center">
+        <%= link_to("Back", {:action => "index", :category_id=>@categories.id}, :class=>"btn btn-warning")%>
+        <%= submit_tag("Update", :class=>"btn btn-primary")%>
+      </div>
+  <%end%>
+</div>

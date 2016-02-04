@@ -1,0 +1,46 @@
+<div class="hero-unit">
+  <h1>Show Article</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Page</th>
+      <th><%= @articles.page.name %></th>
+    </tr>
+
+    <tr>
+      <th>Name</th>
+      <th><%= @articles.name %></th>
+    </tr>
+
+    <tr>
+      <th>Position</th>
+      <th><%= @articles.position %></th>
+    </tr>
+
+    <tr>
+      <th>Photo</th>
+      <th><%= image_tag(@articles.photo) %></th>
+    </tr>
+
+    <tr>
+      <th>Content</th>
+      <th><%= @articles.content %></th>
+    </tr>
+
+    <tr>
+      <th>It is visible ? </th>
+      <th><%= @articles.visible ? "YES" : "NO" %></th>
+    </tr>
+
+    <tr>
+      <th>Created: </th>
+      <th><%= @articles.created_at%></th>
+    </tr>
+
+    <tr>
+      <th>Updated? </th>
+      <th><%= @articles.updated_at%></th>
+    </tr>
+  </table>
+  <div style="text-align: center"><%= link_to("Back", {:action => "index", :page_id => @pages.id}, :class=>"btn btn-primary")%></div>
+</div>
+

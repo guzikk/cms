@@ -1,0 +1,45 @@
+<%= error(@articles)%>
+
+<table class="table table-striped">
+  <tr>
+    <th><%= field.label(:page_id, "Page")%></th>
+    <th><%= field.select(:page_id, @page.map{|t| [t.name, t.id]}, :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:name)%></th>
+    <th><%= field.text_field(:name, :placeholder => "Name of article", :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:position)%></th>
+    <th><%= field.select(:position, 1..@counter, :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:visible, "Is it visible ?")%></th>
+    <th><%= field.check_box(:visible)%></th>
+  </tr>
+
+  <% if !@articles.photo.blank? %>
+      <tr>
+        <th>Photo:</th>
+        <th><%= image_tag(@articles.photo)%></th>
+      </tr>
+  <%end%>
+
+  <tr>
+    <th><%= field.label(:photo)%></th>
+    <th><%= field.file_field(:photo)%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:created_at, "Created")%></th>
+    <th><%= field.datetime_select(:created_at, :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:content)%></th>
+    <th><%= field.text_area(:content, :placeholder => "Article", :class=>"form-control")%></th>
+  </tr>
+</table>

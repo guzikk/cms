@@ -1,0 +1,36 @@
+<%= error(@user)%>
+
+<table class="table table-striped">
+
+  <tr>
+    <th><%= field.label(:first_name)%></th>
+    <th><%= field.text_field(:first_name, :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:last_name)%></th>
+    <th><%= field.text_field(:last_name, :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:login)%></th>
+    <th><%= field.text_field(:login, :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+  <th><%= field.label(:email)%></th>
+  <th><%= field.text_field(:email, :class=>"form-control")%></th>
+    </tr>
+
+
+  <tr>
+    <th><%= field.label(:password)%></th>
+    <th><%= field.password_field(:password, :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:password_confirmation)%></th>
+    <th><%= field.password_field(:password_confirmation, :class=>"form-control")%></th>
+  </tr>
+
+</table>

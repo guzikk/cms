@@ -1,0 +1,12 @@
+<div class="hero-unit">
+    <h1>Delete User</h1>
+    <%= form_for(:user, :url => {:action => "destroy", :id=>@user.id}) do |field|%>
+        <p> Are you sure to delete User ? </p>
+        <p class="text-warning"><%= @user.first_name + " " +  @user.last_name %></p>
+        <div style="text-align: center">
+          <%= link_to("Back", {:action => "index"}, :class=>"btn btn-primary")%>
+          <%= submit_tag("Delete", :class=>"btn btn-danger" )%>
+        </div>
+    <%end%>
+</div>
+

@@ -1,0 +1,13 @@
+<div class="hero-unit">
+    <h1>Delete Photo</h1>
+    <%= form_for(:photo, :url => {:action => "destroy", :id=>@photo.id, :gallery_id=>@galleries.id}) do |field|%>
+        <p> Are you sure to delete Photo ? </p>
+        <p class="text-warning"><%= @photo.name %></p>
+        <p class="text-warning"><%= image_tag(@photo.photo) %></p>
+        <div style="text-align: center">
+          <%= link_to("Back", {:action => "index", :gallery_id=>@galleries.id}, :class=>"btn btn-primary")%>
+          <%= submit_tag("Delete", :class=>"btn btn-danger" )%>
+        </div>
+    <%end%>
+</div>
+

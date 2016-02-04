@@ -1,0 +1,35 @@
+<%@page_name = @gallery.name%>
+<div class="container">
+  <h2><%= @gallery.name %></h2>
+  <div class="row">
+    <div class="col-md-8">
+        <%= @gallery.description%>
+        <hr>
+        <p><%= link_to("<< Back", {:controller=>'public', :action=>'index'}, :class=>'btn btn-default')%></p>
+    </div>
+    <div class="col-md-4">
+        <%= image_tag(@gallery.photo.url, :class=>'featurette-image img-responsive')%>
+    </div>
+  </div>
+</div>
+<br><br>
+<div class="container">
+  <% @gallery.photos.visible.each_slice(3) do |photo| %>
+    <div class="row">
+        <% photo.each do |pho| %>
+            <div class="col-md-4">
+              <a class="example-image-link" href="<%= pho.photo.url%>" data-lightbox="example-set" title="<%= pho.description %>">
+              <%= image_tag(pho.photo.url(:thumb))%>
+              </a>
+              <br>
+              <%= pho.name %>
+            </div>
+        <%end%>
+    </div>
+    <hr>
+  <%end%>
+</div>
+
+
+
+

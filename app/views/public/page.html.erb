@@ -1,0 +1,31 @@
+<% @page_name = @page.name %>
+<%lp=1%>
+<div class="container">
+      <div class="row">
+          <h2> <%= @page.name%> </h2>
+          <% @page.articles.sort.each do |article| %>
+              <%if lp%2==0 %>
+                <div class="col-md-8">
+                    <p><%= article.content %></p>
+                </div>
+                <div class="col-md-4">
+                    <%= image_tag(article.photo.url, :class=>"featurette-image img-responsive")%>
+                </div>
+            <%else%>
+                <div class="col-md-4">
+                    <%= image_tag(article.photo.url, :class=>"featurette-image img-responsive")%>
+                </div>
+                <div class="col-md-8">
+                  <p><%= article.content %></p>
+                </div>
+            <%end%>
+            <% lp+=1%>
+            <div class="col-md-12"><hr></div>
+          <%end%>
+        <div class="col-md-12">
+            <%= link_to("<< Back", {:controller=>'public', :action=>'categories', :category_id=>@page.category.id}, :class=>'btn btn-default')%>
+        </div>
+      </div>
+</div>
+
+

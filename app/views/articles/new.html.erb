@@ -1,0 +1,11 @@
+<div class="hero-unit">
+<h1>New Article</h1>
+<%= form_for(:articles, :url => {:action => "create", :page_id => @pages.id}) do |field|%>
+    <%=render(:partial => "form", :locals => {:field => field})%>
+    <div style="text-align: center">
+        <%= link_to("Back", {:action => "index", :page_id => @pages.id}, :class=>"btn btn-warning")%>
+        <%= submit_tag("Send", :class=>"btn btn-primary")%>
+    </div>
+<%end%>
+</div>
+

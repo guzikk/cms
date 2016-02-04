@@ -1,0 +1,12 @@
+<div class="hero-unit">
+  <h1>New Photo</h1>
+  <%= form_for(:photo, :url => {:action => "create", :gallery_id=>@galleries.id}) do |field|%>
+      <%=render(:partial => "form", :locals => {:field => field})%>
+      <div style="text-align: center">
+        <%= link_to("Back", {:action => "index", :gallery_id=>@galleries.id}, :class=>"btn btn-warning")%>
+        <%= submit_tag("Send", :class=>"btn btn-primary")%>
+      </div>
+  <%end%>
+</div>
+
+

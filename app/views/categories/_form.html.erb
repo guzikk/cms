@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <tr>
+    <th><%= field.label(:name)%></th>
+    <th><%= field.text_field(:name, :placeholder => "Name of category", :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:position)%></th>
+    <th><%= field.select(:position, 1..@counter, :class=>"form-control")%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:visible, "Is it visible ?")%></th>
+    <th><%= field.check_box(:visible)%></th>
+  </tr>
+
+  <tr>
+    <th><%= field.label(:created_at, "Created")%></th>
+    <th><%= field.datetime_select(:created_at, :class=>"form-control")%></th>
+  </tr>
+</table>

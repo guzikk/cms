@@ -1,0 +1,33 @@
+<div class="hero-unit">
+  <%= link_to("<< Categories", {:controller=>"categories", :action=>'index'}, :class=>'btn btn-xs btn-default')%>
+  <h1>Pages</h1>
+</div>
+
+<%= link_to("Add new page", {:action => "new", :category_id=>@categories.id}, :class => 'btn btn-mini btn-primary')%>
+<p style="text-align: right">Number of pages: <%= @pages.size %></p>
+<table class="table table-striped">
+  <tr class="info">
+    <th>Position </th>
+    <th>Category </th>
+    <th>Name of page</th>
+    <th>Visible</th>
+    <th>Articles</th>
+    <th>Action</th>
+  </tr>
+  <% @pages.each do |pages| %>
+      <tr>
+        <td><%= pages.position %></td>
+        <% category_name = Category.find(pages.category_id)%>
+        <td><%= category_name.name %></td>
+        <td><%= pages.name %></td>
+        <td class="center"><%= visible_status(pages.visible)%></td>
+        <td class="center"><%= pages.articles.count %></td>
+        <td class="actions">
+          <%= link_to("Articles", {:controller=>"articles", :page_id=>pages.id}, :class=>"btn btn-xs btn-success") %>
+          <%= link_to("Show", {:action => "show", :id=> pages.id, :category_id=>@categories.id}, :class=>"btn btn-xs btn-default") %>
+          <%= link_to("Edit", {:action => "edit", :id=> pages.id, :category_id=>@categories.id}, :class=>"btn btn-xs btn-primary") %>
+          <%= link_to("Delete", {:action => "delete", :id=> pages.id, :category_id=>@categories.id}, :class=>"btn btn-xs btn-danger") %>
+        </td>
+      </tr>
+  <%end%>
+</table>

@@ -1,0 +1,33 @@
+<div class="hero-unit">
+  <%= link_to("<< Galleries", {:controller=>"galleries", :action=>'index'}, :class=>'btn btn-xs btn-default')%>
+  <h1>Photos</h1>
+</div>
+<%= link_to("Add new photos", {:action => "new", :gallery_id=>@galleries.id}, :class => 'btn btn-mini btn-primary')%>
+<p style="text-align: right">Number of photos: <%= @photo.size %></p>
+<table class="table table-striped">
+  <tr class="info">
+    <th>Position </th>
+    <th>Name</th>
+    <th>Photo</th>
+    <th>Description</th>
+    <th>Visible</th>
+    <th>Action</th>
+  </tr>
+  <% @photo.each do |photo| %>
+      <tr>
+        <td><%= photo.position %></td>
+        <td><%= photo.name %></td>
+        <td><%= image_tag photo.photo.url(:thumb) %></td>
+        <td><%= truncate photo.description, :length=>120, :omission=> "[...]" %></td>
+        <td class="center"><%= visible_status(photo.visible)%></td>
+        <td class="actions">
+          <%= link_to("Show", {:action => "show", :id=> photo.id, :gallery_id=>@galleries.id}, :class=>"btn btn-xs btn-default") %>
+          <%= link_to("Edit", {:action => "edit", :id=> photo.id, :gallery_id=>@galleries.id}, :class=>"btn btn-xs btn-primary") %>
+          <%= link_to("Delete", {:action => "delete", :id=> photo.id,:gallery_id=>@galleries.id}, :class=>"btn btn-xs btn-danger") %>
+        </td>
+      </tr>
+  <%end%>
+</table>
+
+
+

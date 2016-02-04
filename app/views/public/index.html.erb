@@ -1,0 +1,54 @@
+<% @page_name = "Home Page"%>
+
+<div class="header-image">
+  <div class="headline">
+    <div class="container">
+      <h2>Others are just learning </h2>
+      <h2>You already know</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container marketing">
+    <div class="row">
+      <% @article.each do |article| %>
+        <div class="col-lg-4">
+            <%= image_tag(article.photo.url(:thumb), :class=>"img-circle")%>
+            <h2><%= article.name %></h2>
+            <p><%= truncate(article.content, :length=>200, :omission=>"[...]")%></p>
+            <p><%= link_to('See article >>', {:action=>'news', :article_id=>article.id}, :class=>'btn btn-default')%></p>
+        </div>
+      <%end%>
+    </div>
+
+  <%lp=1%>
+  <% @gallery.each do |gallery| %>
+      <hr class="featurette-divider">
+      <% if lp%2 == 0 %>
+              <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading"> <%= gallery.name%> </h2>
+                    <p class="lead"><%= truncate(gallery.description, :length=>200, :omission=>"[...]")%></p>
+                    <p><%= link_to('See Gallery >>', {:action=>'galleries', :gallery_id=>gallery.id}, :class=>'btn btn-default')%></p>
+                </div>
+
+                <div class="col-md-5">
+                  <%= image_tag(gallery.photo.url, :class=>"featurette-image img-responsive img-circle")%>
+                </div>
+              </div>
+      <%else%>
+              <div class="row featurette">
+                <div class="col-md-5">
+                  <%= image_tag(gallery.photo.url, :class=>"featurette-image img-responsive img-circle")%>
+                </div>
+                <div class="col-md-7">
+                  <h2 class="featurette-heading"> <%= gallery.name%> </h2>
+                  <p class="lead"><%= truncate(gallery.description, :length=>200, :omission=>"[...]")%></p>
+                  <p><%= link_to('See Gallery >>', {:action=>'galleries', :gallery_id=>gallery.id}, :class=>'btn btn-default')%></p>
+                </div>
+              </div>
+      <%end%>
+      <%lp +=1%>
+  <%end%>
+  <hr class="featurette-divider">
+</div>

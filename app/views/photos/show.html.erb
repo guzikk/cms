@@ -1,0 +1,54 @@
+<div class="hero-unit">
+  <h1>Show Photo</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Name of Gallery</th>
+      <th><%= @photo.gallery.name %></th>
+    </tr>
+
+    <tr>
+      <th>Name</th>
+      <th><%= @photo.name %></th>
+    </tr>
+
+    <tr>
+      <th>Position</th>
+      <th><%= @photo.position %></th>
+    </tr>
+
+       <tr>
+      <th>Description</th>
+      <th><%= @photo.description %></th>
+    </tr>
+
+    <tr>
+      <th>It is visible ? </th>
+      <th><%= @photo.visible ? "YES" : "NO" %></th>
+    </tr>
+
+    <tr>
+      <th>Added: </th>
+      <th><%= @photo.created_at%></th>
+    </tr>
+
+    <tr>
+      <th>Updated: </th>
+      <th><%= @photo.updated_at%></th>
+    </tr>
+
+    <tr>
+      <th>Thumb</th>
+      <th><%= image_tag(@photo.photo.url(:thumb)) %></th>
+    </tr>
+
+    <tr>
+      <th>Photo</th>
+      <th><%= image_tag(@photo.photo) %></th>
+    </tr>
+
+  </table>
+  <div style="text-align: center"><%= link_to("Back", {:action => "index", :gallery_id=>@galleries.id}, :class=>"btn btn-primary")%></div>
+
+</div>
+
+
